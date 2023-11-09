@@ -12,7 +12,7 @@ void swap(int *a, int *b){
 }
 
 void PrintArray(int array[], int size){
-    printf("Printing Array[%d]\n--------\n", size);
+    printf("Array[%d]...\n--------\n", size);
     for (int i = 0; i < size; ++i) {
         printf("Array[%d] = %d\n", i, array[i]);
     }
@@ -27,25 +27,29 @@ void  FillArray(int array[], int size){
 }
 
 void /*last var is 0 for asc and 1 for desc*/BubbleSort(int numbers[], int size, int order){
-    puts("Bubble sorting\n--------");
-    for (int i = 0; i < size; ++i) {
-        for (int j = 0; j < size; ++j) {
-            if(order == 0) {
-                if(i == 0 && j == 0) {
-                    puts("Ascending bubble sort\n--------");
-                }
-                if (numbers[i] < numbers[j]) { // '<' for ascending and '>' for descending  type of sorting
-                    swap(&numbers[i], &numbers[j]);
-                }
-            }
-            else {
-                if(i == 0 && j == 0) {
-                    puts("Descending bubble sort\n--------");
-                }
-                if (numbers[i] > numbers[j]) { // '<' for ascending and '>' for descending  type of sorting
-                    swap(&numbers[i], &numbers[j]);
+    switch (order) {
+        case 0:
+            puts("Ascending bubble sort\n--------");
+            for (int i = 0; i < size; ++i) {
+                for (int j = 0; j < size; ++j) {
+                    if (numbers[i] < numbers[j]) { // '<' for ascending and '>' for descending  type of sorting
+                        swap(&numbers[i], &numbers[j]);
+                    }
                 }
             }
-        }
+            break;
+        case 1:
+            puts("Descending bubble sort\n--------");
+            for (int i = 0; i < size; ++i){
+                for (int j = 0; j < size; ++j){
+                    if (numbers[i] > numbers[j]) { // '<' for ascending and '>' for descending  type of sorting
+                        swap(&numbers[i], &numbers[j]);
+                    }
+                }
+            }
+            break;
+        default:
+            puts("Error in assigning the order\nTry again");
+            exit(2);
     }
 }
