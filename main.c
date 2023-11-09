@@ -12,7 +12,8 @@ int main()
     scanf("%d", &sizeofArray);
 
     FillArray(numbers, sizeofArray); //Fills the array up until the specified index
-    BubbleSort(numbers, sizeofArray); //Bubble sorts the array
+    BubbleSort(numbers, sizeofArray, 0); //Bubble sorts the array
+    PrintArray(numbers, sizeofArray);
 
     return 0;
 }

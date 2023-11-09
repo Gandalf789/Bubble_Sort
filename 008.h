@@ -12,7 +12,7 @@ void swap(int *a, int *b){
 }
 
 void PrintArray(int array[], int size){
-    printf("Array[%d]\n--------\n", size);
+    printf("Printing Array[%d]\n--------\n", size);
     for (int i = 0; i < size; ++i) {
         printf("Array[%d] = %d\n", i, array[i]);
     }
@@ -26,23 +26,8 @@ void  FillArray(int array[], int size){
     }
 }
 
-void BubbleSort(int numbers[], int size){
-    int order;
+void /*last var is 0 for asc and 1 for desc*/BubbleSort(int numbers[], int size, int order){
     puts("Bubble sorting\n--------");
-    printf("%s", ">> [a]sc/[d]esc = ");
-    order = getchar();  //getting the order in which to order the array
-    switch (order) {
-        case 97:
-            order = 0; // order = 0 = '<'
-            break;
-        case 100:
-            order = 1; // order = 1 = '>'
-            break;
-        default:
-            puts("Error\nno valid input given\nTry again\n");
-            exit(261);
-    }
-
     for (int i = 0; i < size; ++i) {
         for (int j = 0; j < size; ++j) {
             if(order == 0) {
@@ -61,8 +46,6 @@ void BubbleSort(int numbers[], int size){
                     swap(&numbers[i], &numbers[j]);
                 }
             }
-
         }
     }
-    PrintArray(numbers, size);
 }
